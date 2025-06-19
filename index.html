@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Convite da Sofia - 5 anos</title>
+<style>
+  body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: #b2e3f7;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+  }
+  h1 {
+    color: #154360;
+    margin-bottom: 0;
+  }
+  p {
+    font-size: 18px;
+    color: #154360;
+    margin-top: 5px;
+  }
+  .stitch-container {
+    margin: 20px auto;
+    width: 200px;
+    position: relative;
+  }
+  .stitch {
+    width: 200px;
+    animation: dance 2s infinite;
+  }
+  @keyframes dance {
+    0%, 100% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(10deg) translateY(-10px); }
+  }
+  .balloons {
+    position: absolute;
+    top: -60px;
+    left: 30px;
+    width: 140px;
+    animation: floatBalloons 4s ease-in-out infinite;
+  }
+  @keyframes floatBalloons {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  button {
+    background-color: #1abc9c;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #16a085;
+  }
+</style>
+</head>
+<body>
+
+<h1>Você está convidado para o aniversário da Sofia!</h1>
+<p>Vamos comemorar 5 anos de muita alegria!</p>
+
+<div class="stitch-container">
+  <img class="stitch" src="https://i.imgur.com/5YKAj64.png" alt="Stitch dançando" />
+  <img class="balloons" src="https://i.imgur.com/gv2qzCp.png" alt="Balões" />
+</div>
+
+<button onclick="confirmarPresenca()">Confirmar presença no WhatsApp</button>
+
+<audio id="musica" loop volume="0.3" autoplay>
+  <source src="https://actions.google.com/sounds/v1/ambiences/kids_playing.ogg" type="audio/ogg" />
+  Seu navegador não suporta áudio.
+</audio>
+
+<script>
+function confirmarPresenca() {
+  const telefone = "5531985964011";
+  const mensagem = encodeURIComponent("Olá! Quero confirmar presença no aniversário da Sofia.");
+  window.open(`https://wa.me/${telefone}?text=${mensagem}`, "_blank");
+}
+
+// Ajusta o volume suave da música depois que carregar
+window.onload = () => {
+  const musica = document.getElementById("musica");
+  musica.volume = 0.3;
+};
+</script>
+
+</body>
+</html>
